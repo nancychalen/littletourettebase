@@ -81,7 +81,7 @@ app.put('/actualizarusuario',(req,res)=>{
             return res.status(500).json({success: false, data: err});
         }
 
-        client.query("UPDATE usuarios SET nombre='"+req.body.nombre+"', clave='"+req.body.clave+"', nacimiento='"+req.body.nacimiento+"' WHERE id='" + id + "';", function(err, result) {
+        client.query("UPDATE usuarios SET nombre='"+req.body.nombre+"', clave='"+req.body.clave+"', nacimiento='"+req.body.nacimiento+"',avatar='"+req.body.avatar+"' WHERE id='" + id + "';", function(err, result) {
             
             if(err) {
                 return console.error('error query', err);
@@ -125,7 +125,7 @@ app.post('/guardarusuario', (req, res) => {
             return res.status(500).json({success: false, data: err});
         }
                 
-        client.query("INSERT INTO  usuarios (nombre,clave,nacimiento) VALUES ('"+req.body.nombre+"', '"+req.body.clave+"','"+req.body.nacimiento+"');", function(err, result) {
+        client.query("INSERT INTO  usuarios (nombre,clave,nacimiento,avatar) VALUES ('"+req.body.nombre+"', '"+req.body.clave+"','"+req.body.nacimiento+"','"+req.body.avatar+"');", function(err, result) {
             if(err) {
                 return console.error('error query', err);
             }
