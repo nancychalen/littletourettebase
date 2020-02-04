@@ -145,7 +145,7 @@ app.post('/guardarlistasusarios', (req, res) => {
             return res.status(500).json({success: false, data: err});
         }
           console.log("req",req.body)     
-          req.body=req.body.replace("'\'", "");
+          JSON.parse(req.body); 
           console.log("req",req.body)   
         /*client.query("INSERT INTO  usuarios (nombre,clave,nacimiento,avatar) VALUES ('"+req.body.nombre+"', '"+req.body.clave+"','"+req.body.nacimiento+"','"+req.body.avatar+"');", function(err, result) {
             if(err) {
