@@ -31,7 +31,7 @@ console.log("iniciado");
 
 app.get('/leerusuarios', (req, res, next) => {
     var client = new pg.Client(conString);
-    console.log(req.body)
+    console.log("req",req.body)
     client.connect(function(err) {
         if(err) {
             return console.error('error con postgres', err);
