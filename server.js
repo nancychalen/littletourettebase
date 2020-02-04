@@ -130,6 +130,7 @@ app.post('/guardarusuario', (req, res) => {
                 return console.error('error query', err);
             }
             client.end();
+            console.log(result.rows)
             return res.json(result.rows);
             
         });
