@@ -137,6 +137,25 @@ app.post('/guardarusuario', (req, res) => {
     });
 });
 
+app.post('/guardarlistasusarios', (req, res) => {
+    var client = new pg.Client(conString);
+    client.connect(function(err) {
+        if(err) {
+            return console.error('error con postgres', err);
+            return res.status(500).json({success: false, data: err});
+        }
+          console.log("req",req.body)      
+        /*client.query("INSERT INTO  usuarios (nombre,clave,nacimiento,avatar) VALUES ('"+req.body.nombre+"', '"+req.body.clave+"','"+req.body.nacimiento+"','"+req.body.avatar+"');", function(err, result) {
+            if(err) {
+                return console.error('error query', err);
+            }
+            client.end();
+            return res.json(result.rows);
+            
+        });*/
+        
+    });
+});
 
 app.get('/ultimoidusuario',(req,res)=>{
     var client = new pg.Client(conString);
